@@ -1,21 +1,14 @@
-# CSS Notlarım
+# CSS Öğrenim Notları
 
-Bu repository CSS öğrenirken aldığım notları içermektedir.
+CSS öğrenme sürecinde hazırlanmış pratik örnekler ve notlar.
 
-## İçindekiler
+## İçerik
+23 farklı HTML dosyası ile CSS konuları uygulamalı olarak işlenmiştir:
+- Temel seçiciler ve CSS kullanımı
+- Renkler, border, margin, padding
+- Display, position, float, flexbox
+- Responsive tasarım ve media queries
+- Pseudo-class ve pseudo-elements
+- Tablolar, overflow ve daha fazlası
 
-- [Giriş](#giriş)
-- [Temel Kavramlar](#temel-kavramlar)
-- [Seçiciler](#seçiciler)
-- [Kutu Modeli](#kutu-modeli)
-- [Flexbox](#flexbox)
-- [Grid](#grid)
-- [Animasyonlar](#animasyonlar)
-
-## Giriş
-
-CSS (Cascading Style Sheets), web sayfalarının görünümünü ve düzenini kontrol etmek için kullanılan stil dilidir.
-
-
-
-**Not**: Bu notlar güncellenmeye devam etmektedir.
+📝 Detaylı notlar için [css-notlar.md](css-notlar.md) dosyasına bakabilirsiniz.
