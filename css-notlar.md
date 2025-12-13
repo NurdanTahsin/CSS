@@ -162,3 +162,229 @@ div.box-1*3
 ```
 
 **Not:** Emmet kısayolları hem HTML hem de CSS dosyalarında çalışır.
+
+<br>
+<br>
+
+## CSS Pseudo-Class'lar
+
+Pseudo-class'lar, bir öğenin **özel bir durumda olduğunu** belirtmek için kullanılır. Sadece tıklanabilir öğeler için değil, çok çeşitli durumlar ve öğe tipleri için kullanılabilir.
+
+### Söz Dizimi
+
+```css
+seçici:pseudo-class {
+    özellik: değer;
+}
+```
+
+### Etkileşim Durumları (User Action)
+
+Bu pseudo-class'lar kullanıcı etkileşimlerini yakalar:
+
+```css
+/* Fare üzerine geldiğinde */
+a:hover {
+    color: red;
+}
+
+/* Tıklanma anında */
+button:active {
+    background-color: blue;
+}
+
+/* Odaklandığında (klavye veya fare ile) */
+input:focus {
+    border: 2px solid green;
+}
+
+/* Ziyaret edilmiş link */
+a:visited {
+    color: purple;
+}
+```
+
+### Yapısal Pseudo-Class'lar
+
+Öğenin HTML yapısındaki konumuna göre seçim yapar:
+
+```css
+/* İlk çocuk öğe */
+p:first-child {
+    font-weight: bold;
+}
+
+/* Son çocuk öğe */
+li:last-child {
+    border-bottom: none;
+}
+
+/* N'inci çocuk öğe */
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
+
+/* Belirli sırada */
+li:nth-child(3) {
+    color: red;
+}
+
+/* İçi boş öğeler */
+div:empty {
+    display: none;
+}
+
+/* Tek çocuk olan öğeler */
+p:only-child {
+    text-align: center;
+}
+```
+
+### Form Durumları
+
+Form elemanlarının durumlarını hedefler:
+
+```css
+/* Devre dışı input */
+input:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Aktif input */
+input:enabled {
+    background-color: white;
+}
+
+/* İşaretli checkbox/radio */
+input:checked {
+    accent-color: green;
+}
+
+/* Zorunlu alanlar */
+input:required {
+    border-left: 3px solid red;
+}
+
+/* İsteğe bağlı alanlar */
+input:optional {
+    border-left: 3px solid gray;
+}
+
+/* Geçerli veri */
+input:valid {
+    border-color: green;
+}
+
+/* Geçersiz veri */
+input:invalid {
+    border-color: red;
+}
+
+/* Placeholder görünürken */
+input:placeholder-shown {
+    font-style: italic;
+}
+```
+
+### Mantıksal Pseudo-Class'lar
+
+```css
+/* Belirtilen öğe HARİÇ herkes */
+p:not(.highlight) {
+    color: gray;
+}
+
+/* Kök öğe (genelde <html>) */
+:root {
+    --main-color: blue;
+}
+
+/* URL hash'ine eşleşen öğe */
+:target {
+    background-color: yellow;
+}
+```
+
+### Link Durumları
+
+Linkler için özel pseudo-class sırası:
+
+```css
+/* LVHA - LoVe HAte (sıra önemli!) */
+
+/* 1. Ziyaret edilmemiş */
+a:link {
+    color: blue;
+}
+
+/* 2. Ziyaret edilmiş */
+a:visited {
+    color: purple;
+}
+
+/* 3. Hover durumu */
+a:hover {
+    color: red;
+}
+
+/* 4. Aktif (tıklanma anı) */
+a:active {
+    color: orange;
+}
+```
+
+### Pratik Örnekler
+
+**Zebra striping (Tablo satırları):**
+
+```css
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+```
+
+**Form validasyonu:**
+
+```css
+input:invalid:focus {
+    border: 2px solid red;
+    outline: none;
+}
+
+input:valid:focus {
+    border: 2px solid green;
+    outline: none;
+}
+```
+
+**Liste stili:**
+
+```css
+li:first-child {
+    font-weight: bold;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li:hover {
+    background-color: #f0f0f0;
+}
+```
+
+### Önemli Notlar
+
+1. **Tıklanabilir olmayan öğeler de kullanabilir**: `p:first-child`, `div:empty`, `span:hover`
+2. **Specificity**: Pseudo-class'lar class seçicisi kadar önceliğe sahiptir (0-0-1-0)
+3. **Birden fazla kullanılabilir**: `input:required:invalid:focus`
+4. **Tarayıcı desteği**: Eski tarayıcılarda bazı pseudo-class'lar çalışmayabilir
